@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipts</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="transactions.html">Month-wise Finances</a></li>
+            <li><a href="add-details.html">Add Monthly Details</a></li>
+            <li><a href="ai-advice.html">AI Financial Advice</a></li>
+            <li><a href="graphs.html">Graph Visualization</a></li>
+            <li><a href="receipts.html" class="active">Payment Receipts</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="toggle-sidebar-btn">&#x276E;</button>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+
+    <!-- Header -->
+    <header class="header">Payment Receipts</header>
+
+    <!-- Receipt Upload Section -->
+    <div class="receipt-container">
+        <h2>Upload or Capture Receipts</h2>
+        <input type="file" id="receipt-input" accept="image/*">
+        <button id="capture-receipt">Capture Receipt</button>
+        <div id="receipt-preview"></div>
+    </div>
+
+    <!-- Saved Receipts Section -->
+    <div class="saved-receipts">
+        <h2>Saved Receipts</h2>
+        <div id="receipt-list"></div>
+    </div>
+
+</body>
+</html>
