@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; }
+.header { background: blue; color: white; padding: 15px; text-align: center; }
+.sidebar { width: 200px; background: white; position: fixed; }
+.content { margin-left: 220px; padding: 20px; }
+.theme-toggle { position: absolute; top: 15px; right: 20px; cursor: pointer; }

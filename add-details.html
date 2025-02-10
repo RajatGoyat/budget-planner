@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Monthly Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        Add Monthly Details
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </header>
+
+    <div class="content">
+        <h2>Enter Your Monthly Finances</h2>
+        <form>
+            <label>Month:</label>
+            <input type="text" placeholder="e.g., January" required>
+
+            <label>Earnings:</label>
+            <input type="number" placeholder="₹" required>
+
+            <label>Expenses:</label>
+            <input type="number" placeholder="₹" required>
+
+            <label>Category:</label>
+            <select>
+                <option>Rent</option>
+                <option>Food</option>
+                <option>Transport</option>
+            </select>
+
+            <button type="submit" class="btn">Save Details</button>
+        </form>
+    </div>
+
+    <footer class="footer">© 2025 AI Financial Planner</footer>
+</body>
+</html>
