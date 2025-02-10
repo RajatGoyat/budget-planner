@@ -1,5 +1,6 @@
 /* General Styles */
 body {
+    background-image: url('stock.png');
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
