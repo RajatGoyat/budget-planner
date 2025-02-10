@@ -71,10 +71,6 @@ a{
     transition: transform 0.3s ease-in-out;
 }
 
-.sidebar-toggle:hover {
-    transform: scale(1.1);
-}
-
 /* Header */
 .header {
     position: fixed;
@@ -104,7 +100,7 @@ a{
 /* Theme Toggle Button */
 .theme-toggle {
     position: fixed;
-    top: 10px;
+    top: 60px;
     right: 10px;
     background: white;
     border: 1px solid #007bff;
