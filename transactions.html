@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month-wise Finances</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="transactions.html" class="active">Month-wise Finances</a></li>
+            <li><a href="add-details.html">Add Monthly Details</a></li>
+            <li><a href="ai-advice.html">AI Financial Advice</a></li>
+            <li><a href="graphs.html">Graph Visualization</a></li>
+            <li><a href="receipts.html">Payment Receipts</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="toggle-sidebar-btn">&#x276E;</button>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+
+    <!-- Header -->
+    <header class="header">Month-wise Finances</header>
+
+    <!-- Content -->
+    <div class="content">
+        <h2>Month-wise Transactions</h2>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <input type="text" id="search" placeholder="🔍 Search transactions...">
+            <button id="sort-date">Sort by Date</button>
+            <button id="sort-amount">Sort by Amount</button>
+        </div>
+
+        <!-- Transactions Table -->
+        <table id="transactions-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Amount (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01-Feb-2025</td>
+                    <td>Salary</td>
+                    <td>Income</td>
+                    <td class="income">+50,000</td>
+                </tr>
+                <tr>
+                    <td>05-Feb-2025</td>
+                    <td>Rent</td>
+                    <td>Housing</td>
+                    <td class="expense">-15,000</td>
+                </tr>
+                <tr>
+                    <td>10-Feb-2025</td>
+                    <td>Groceries</td>
+                    <td>Food</td>
+                    <td class="expense">-5,000</td>
+                </tr>
+                <tr>
+                    <td>15-Feb-2025</td>
+                    <td>Freelance Work</td>
+                    <td>Income</td>
+                    <td class="income">+10,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

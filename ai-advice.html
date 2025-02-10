@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graph Visualization</title>
+    <title>AI Financial Advice</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -16,8 +15,8 @@
             <li><a href="index.html">Dashboard</a></li>
             <li><a href="transactions.html">Month-wise Finances</a></li>
             <li><a href="add-details.html">Add Monthly Details</a></li>
-            <li><a href="ai-advice.html">AI Financial Advice</a></li>
-            <li><a href="graphs.html" class="active">Graph Visualization</a></li>
+            <li><a href="ai-advice.html" class="active">AI Financial Advice</a></li>
+            <li><a href="graphs.html">Graph Visualization</a></li>
             <li><a href="receipts.html">Payment Receipts</a></li>
         </ul>
     </div>
@@ -29,15 +28,20 @@
     <button class="theme-toggle" id="theme-toggle">🌙</button>
 
     <!-- Header -->
-    <header class="header">Graph Visualization</header>
+    <header class="header">AI Financial Advice</header>
 
-    <!-- Graph Container -->
-    <div class="graph-container">
-        <h2>Monthly Earnings vs. Expenses</h2>
-        <canvas id="barChart"></canvas>
+    <!-- Chatbox -->
+    <div class="chat-container">
+        <div class="chatbox" id="chatbox">
+            <div class="chat-message bot-message">
+                <strong>AI:</strong> Hello! Ask me anything about your finances.
+            </div>
+        </div>
 
-        <h2>Expense Breakdown by Category</h2>
-        <canvas id="pieChart"></canvas>
+        <div class="chat-input-container">
+            <input type="text" id="user-input" placeholder="Type your question..." autocomplete="off">
+            <button id="send-btn">➤</button>
+        </div>
     </div>
 
 </body>
