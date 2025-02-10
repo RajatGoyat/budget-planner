@@ -1,304 +1,524 @@
-
-         .sidebar {
-            width: 250px;
-            transition: width 0.4s ease-in-out, opacity 0.3s ease-in-out;
-            background-color: #ffffff;
-            position: fixed;
-            height: 100vh;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        .sidebar {
-            width: 250px;
-            transition: width 0.3s ease-in-out;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        
-        .sidebar.collapsed {
-            width: 60px;
-        }
-        
-        .sidebar ul {
-            padding: 0;
-            margin: 0;
-        }
-        
-        .sidebar li {
-            display: flex;
-            align-items: center;
-            transition: font-size 0.3s ease-in-out;
-        }
-        
-        .sidebar .icon-container {
-            min-width: 40px;
-            text-align: center;
-        }
-        
-        .sidebar .text {
-            font-size: 1rem;
-            transition: font-size 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            white-space: nowrap;
-        }
-        
-        .sidebar.collapsed .text {
-            font-size: 0;
-            opacity: 0;
-        }
-        
-        /* Keep Bank Icon and Text Visible */
-        .sidebar > div:first-child {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-        }
-        
-        .sidebar > div:first-child .text1 {
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: font-size 0.3s ease-in-out;
-        }
-        
-        .sidebar.collapsed > div:first-child .text1 {
-            font-size: 1rem; /* Reduce size but keep visible */
-        }
-        
-
-        .collapsed-sidebar {
-            width: 60px;
-            transition: width 0.4s ease-in-out, opacity 0.3s ease-in-out;
-            background-color: #ffffff;
-            position: fixed;
-            height: 100vh;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            display: none;
-            opacity: 0;
-        }
-
-        .collapsed-sidebar ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-
-        .collapsed-sidebar ul li {
-            margin: 20px 0;
-        }
-
-        .collapsed-sidebar ul li a {
-            color: #333;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-        }
-
-        .collapsed-sidebar .toggle-btn {
-            background: none;
-            border: none;
-            color: #333;
-            cursor: pointer;
-            display: block;
-            margin: 10px auto;
-        }
-
-        /* Collapsed Sidebar Transition */
-        .sidebar.collapsed {
-            width: 0;
-            opacity: 0;
-        }
-
-        .collapsed-sidebar.visible {
-            display: block;
-            opacity: 1;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-        
-        .content {
-    transition: margin-left 0.4s ease-in-out;
-}
-.text1 {
-    font-size: 30px;
-    font-weight: bold; /* Makes text bold */
-}
-
-/* Keep content slightly shifted but not hidden */
-.sidebar.collapsed + .content {
-    margin-left: 80px; /* Ensures the dashboard stays visible */
-}
-
-        /* Fade-in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        body {
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
     height: 100vh;
-    margin: 0;
-    overflow-x: hidden; /* Prevents horizontal scroll */
+    overflow-x: hidden;
+    transition: background 0.3s;
 }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+/* ====== Sidebar ====== */
+.sidebar {
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #ffffff;
+    padding-top: 60px;
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.4s ease-in-out;
+    overflow: hidden;
+}
 
-        .navbar {
-            background-color: #ffffff;
-            color: #333;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.sidebar ul li {
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-        .sidebar {
-            width: 250px;
-            transition: width 0.4s ease-in-out;
-            background-color: #ffffff;
-            height: 100vh;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
+.sidebar ul li:hover {
+    background: #007bff;
+    color: white;
+    transform: translateX(5px);
+}
 
-        .sidebar.collapsed {
-            width: 60px;
-        }
+/* Collapsed Sidebar */
+.collapsed {
+    width: 0px;
+    padding: 0;
+    transition: width 0.4s ease-in-out;
+}
 
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
 
-        .sidebar ul li {
-            margin: 20px 0;
-        }
+.sidebar-toggle:hover {
+    transform: scale(1.1);
+}
 
-        .sidebar ul li a {
-            color: #333;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
+/* Header */
+.header {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    padding: 15px;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
 
-        .sidebar ul li a .icon-container {
-            margin-right: 10px;
-        }
+/* Content */
+.content {
+    margin-top: 70px;  /* ✅ Fixed Overlap Issue */
+    margin-left: 260px;
+    padding: 20px;
+    transition: margin-left 0.4s ease-in-out;
+}
 
-        .sidebar ul li a span {
-            transition: opacity 0.3s ease;
-        }
+.collapsed + .content {
+    margin-left: 20px;
+}
 
-        .sidebar.collapsed ul li a span {
-            display: none;
-        }
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
 
-        .toggle-btn {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            right: -20px;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-        }
+.theme-toggle:hover {
+    background: #007bff;
+    color: white;
+}
 
-        /* Rotate button when sidebar collapses */
-        .sidebar.collapsed .toggle-btn {
-            transform: translateY(-50%) rotate(180deg);
-        }
 
-        /* Hover effect for better UI */
-        .toggle-btn:hover {
-            background-color: #2980b9;
-        }.c123:hover {
-            background-color: #2980b9;
-            padding: 10px;
-            border-radius: 100px;
-        }
 
-        .content {
-            flex: 1;
-            /* This makes content take up remaining space */
-            padding: 10px;
-            transition: margin-left 0.4s ease-in-out;
-        }
 
-        /* Make sure content shifts when sidebar collapses */
-        .sidebar.collapsed~.content {
-            margin-left: -190px;
-            /* Adjust for smaller sidebar */
-        }
+/* Dashboard Grid */
+.dashboard-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
 
-        .card {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 30%;
+}
 
-        .card h2 {
-            color: #3498db;
-        }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .expense-buttons {
-            display: flex;
-            gap: 10px;
-        }
+/* Different Colors for Financial Summary */
+.income { background: #d4f8e8; color: #0a8a50; }
+.expenses { background: #ffe4e1; color: #d9534f; }
+.savings { background: #e6e6fa; color: #4a47a3; }
 
-        .expense-buttons button {
-            background-color: #3498db;
-            border: none;
-            padding: 10px;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
+/* Dashboard Options */
+.dashboard-options {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .expense-buttons button i {
-            margin-right: 5px;
-        }
+.option-card {
+    flex: 1 1 30%;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+}
 
-        .material-symbols-outlined {
-            font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 24;
-        }
+.option-card:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #0056b3, #0096ff);
+}
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #2c3e50;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    
+
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-section input {
+    flex: 1;
+    padding: 8px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.filter-section button {
+    padding: 8px 12px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.filter-section button:hover {
+    background: #0056b3;
+}
+
+/* Transactions Table */
+#transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#transactions-table th, #transactions-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#transactions-table th {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+#transactions-table tr:hover {
+    background: rgba(0, 123, 255, 0.1);
+}
+
+.income {
+    color: #0a8a50;
+    font-weight: bold;
+}
+
+.expense {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+
+/* Form Styling */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Floating Labels */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+}
+
+.form-group label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: gray;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label,
+.form-group select:valid + label {
+    top: 5px;
+    font-size: 12px;
+    color: #007bff;
+}
+
+/* Button Styling */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Success Message */
+.hidden {
+    display: none;
+}
+
+#success-message {
+    background: #0a8a50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 15px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Chatbox Styling */
+.chat-container {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    position: relative;
+}
+
+/* Chat Messages */
+.chatbox {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat Messages Styling */
+.chat-message {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    max-width: 80%;
+    line-height: 1.4;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Bot Messages */
+.bot-message {
+    background: #007bff;
+    color: white;
+    align-self: flex-start;
+}
+
+/* User Messages */
+.user-message {
+    background: #f1f1f1;
+    color: black;
+    align-self: flex-end;
+}
+
+/* Chat Input */
+.chat-input-container {
+    display: flex;
+    margin-top: 10px;
+    border-top: 2px solid #007bff;
+    padding-top: 10px;
+}
+
+.chat-input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+.chat-input-container button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.chat-input-container button:hover {
+    background: #0056b3;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Graph Page */
+.graph-container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.graph-container h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Adjusting Charts */
+canvas {
+    width: 100% !important;
+    max-height: 350px;
+}
+
+/* Dark Mode */
+.dark-mode .graph-container {
+    background: #222;
+    color: white;
+}
+
+
+
+
+/* Receipt Page */
+.receipt-container {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.receipt-container input, .receipt-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#receipt-preview {
+    margin-top: 10px;
+}
+
+#receipt-preview img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Saved Receipts */
+.saved-receipts {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#receipt-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.receipt-item {
+    position: relative;
+    width: 120px;
+    height: 150px;
+}
+
+.receipt-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.receipt-item button {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: red;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Dark Mode */
+.dark-mode .receipt-container {
+    background: #222;
+    color: white;
+}
+
+
