@@ -5,20 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graph Visualization</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="graph.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header class="header">
-        Graph Visualization
-        <button id="theme-toggle" class="theme-toggle">🌙</button>
-    </header>
 
-    <div class="content">
-        <h2>Annual Financial Graphs</h2>
-        <canvas id="barGraph"></canvas>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="transactions.html">Month-wise Finances</a></li>
+            <li><a href="add-details.html">Add Monthly Details</a></li>
+            <li><a href="ai-advice.html">AI Financial Advice</a></li>
+            <li><a href="graphs.html" class="active">Graph Visualization</a></li>
+            <li><a href="receipts.html">Payment Receipts</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="toggle-sidebar-btn">&#x276E;</button>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+
+    <!-- Header -->
+    <header class="header">Graph Visualization</header>
+
+    <!-- Graph Container -->
+    <div class="graph-container">
+        <h2>Monthly Earnings vs. Expenses</h2>
+        <canvas id="barChart"></canvas>
+
+        <h2>Expense Breakdown by Category</h2>
         <canvas id="pieChart"></canvas>
     </div>
 
-    <footer class="footer">© 2025 AI Financial Planner</footer>
 </body>
 </html>
