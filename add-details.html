@@ -8,34 +8,73 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header class="header">
-        Add Monthly Details
-        <button id="theme-toggle" class="theme-toggle">🌙</button>
-    </header>
 
-    <div class="content">
-        <h2>Enter Your Monthly Finances</h2>
-        <form>
-            <label>Month:</label>
-            <input type="text" placeholder="e.g., January" required>
-
-            <label>Earnings:</label>
-            <input type="number" placeholder="₹" required>
-
-            <label>Expenses:</label>
-            <input type="number" placeholder="₹" required>
-
-            <label>Category:</label>
-            <select>
-                <option>Rent</option>
-                <option>Food</option>
-                <option>Transport</option>
-            </select>
-
-            <button type="submit" class="btn">Save Details</button>
-        </form>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="transactions.html">Month-wise Finances</a></li>
+            <li><a href="add-details.html" class="active">Add Monthly Details</a></li>
+            <li><a href="ai-advice.html">AI Financial Advice</a></li>
+            <li><a href="graphs.html">Graph Visualization</a></li>
+            <li><a href="receipts.html">Payment Receipts</a></li>
+        </ul>
     </div>
 
-    <footer class="footer">© 2025 AI Financial Planner</footer>
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="toggle-sidebar-btn">&#x276E;</button>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+
+    <!-- Header -->
+    <header class="header">Add Monthly Details</header>
+
+    <!-- Content -->
+    <div class="content">
+        <h2>Add Your Monthly Earnings & Expenses</h2>
+
+        <form id="add-details-form">
+            <!-- Date Input -->
+            <div class="form-group">
+                <input type="date" id="date" required>
+                <label for="date">Date</label>
+            </div>
+
+            <!-- Amount Input -->
+            <div class="form-group">
+                <input type="number" id="amount" required>
+                <label for="amount">Amount (₹)</label>
+            </div>
+
+            <!-- Description Input -->
+            <div class="form-group">
+                <input type="text" id="description" required>
+                <label for="description">Description</label>
+            </div>
+
+            <!-- Category Dropdown -->
+            <div class="form-group">
+                <select id="category" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="income">Income</option>
+                    <option value="housing">Housing</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="category">Category</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Add Transaction</button>
+        </form>
+
+        <!-- Success Message -->
+        <div id="success-message" class="hidden">Transaction added successfully!</div>
+
+    </div>
+
 </body>
 </html>
